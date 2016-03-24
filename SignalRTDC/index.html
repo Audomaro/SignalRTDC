@@ -1,0 +1,157 @@
+﻿<!DOCTYPE html>
+<html ng-app="app">
+<head>
+    <title></title>
+    <meta charset="utf-8" />
+    <link href="Content/angular-material.min.css" rel="stylesheet" />
+    <link href="Content/angular-material.layouts.min.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!--<base href="/">-->
+    <style>
+        .material-icons {
+            font-family: 'Material Icons';
+            font-weight: normal;
+            font-style: normal;
+            font-size: 24px;  /* Preferred icon size */
+            display: inline-block;
+            line-height: 1;
+            text-transform: none;
+            letter-spacing: normal;
+            word-wrap: normal;
+            white-space: nowrap;
+            direction: ltr;
+
+            /* Support for all WebKit browsers. */
+            -webkit-font-smoothing: antialiased;
+            /* Support for Safari and Chrome. */
+            text-rendering: optimizeLegibility;
+            /* Support for Firefox. */
+            -moz-osx-font-smoothing: grayscale;
+
+            /* Support for IE. */
+            font-feature-settings: 'liga';
+        }
+
+        /* Rules for sizing the icon. */
+        .material-icons.md-18 { font-size: 18px; }
+        .material-icons.md-24 { font-size: 24px; }
+        .material-icons.md-36 { font-size: 36px; }
+        .material-icons.md-48 { font-size: 48px; }
+
+        /* Rules for using icons as black on a light background. */
+        .material-icons.md-dark { color: rgba(0, 0, 0, 0.54); }
+        .material-icons.md-dark.md-inactive { color: rgba(0, 0, 0, 0.26); }
+
+        /* Rules for using icons as white on a dark background. */
+        .material-icons.md-light { color: rgba(255, 255, 255, 1); }
+        .material-icons.md-light.md-inactive { color: rgba(255, 255, 255, 0.3); }
+
+        /*.fa-md {
+            height: auto;
+            display: block;
+        }
+
+        .s24 {
+            font-size: 24px;
+        }
+
+        .s32 {
+            font-size: 32px;
+        }*/
+
+        .inputdemoErrors .inputErrorsApp {
+            min-height: 48px;
+        }
+
+        .inputdemoErrors md-input-container > p {
+            font-size: 0.8em;
+            text-align: left;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <audio id="alerta" src="sounds/alarm_frenzy.mp3" type="audio/mpeg" preload="auto"></audio>
+
+    <div ng-controller="navbarController">
+        <md-toolbar>
+            <div class="md-toolbar-tools">
+                <md-button class="md-icon-button" aria-label="Settings" ng-click="Menu()">
+                    <!--<md-icon md-font-icon="fa-bars" class="fa fa-md s24"></md-icon>-->
+                    <md-icon class="md-light">menu</md-icon>
+                </md-button>
+                <h2>
+                    <span>Angular</span>
+                </h2>
+                <span flex></span>
+                <div ng-show="IsAuth()">
+                    <md-menu md-position-mode="target-right target">
+                        <md-button class="md-fab md-mini md-" aria-label="More" ng-click="openMenu($mdOpenMenu, $event)">
+                            <md-icon>more_vert</md-icon>
+                        </md-button>
+                        <md-menu-content width="4">
+                            <md-menu-item>
+                                <md-button>
+                                    <div layout="row" flex>
+                                        <md-icon md-font-icon="fa-ellipsis-v" class="fa fa-md s24"></md-icon>
+                                        <p flex>Redial</p>
+                                    </div>
+                                </md-button>
+                            </md-menu-item>
+                            <md-menu-divider></md-menu-divider>
+                            <md-menu-item>
+                                <md-button ng-click="Cerrar()">
+                                    <div layout="row" flex>
+                                        <md-icon md-font-icon="fa-sign-out" class="fa fa-md s24"></md-icon>
+                                        <p flex>Cerrar sesión</p>
+                                    </div>
+                                </md-button>
+                            </md-menu-item>
+                        </md-menu-content>
+                    </md-menu>
+                </div>
+            </div>
+        </md-toolbar>
+
+        <md-sidenav class="md-sidenav-left md-whiteframe-4dp" md-component-id="left" md-whiteframe="4">
+            <md-toolbar class="md-theme-indigo">
+                <h1 class="md-toolbar-tools">Menu</h1>
+            </md-toolbar>
+            <md-content layout-padding="">
+                <md-button ng-click="Close()" class="md-primary" hide-gt-md="">
+                    Close Sidenav Left
+                </md-button>
+                <p hide-md="" show-gt-md="">
+                    This sidenav is locked open on your device. To go back to the default behavior,
+                    narrow your display.
+                </p>
+            </md-content>
+        </md-sidenav>
+    </div>
+
+    <md-content flex="" layout-padding ui-view></md-content>
+
+    <!-- Libs -->
+    <script src="Scripts/jquery-2.2.1.min.js"></script>
+    <script src="Scripts/jquery.signalR-2.2.0.min.js"></script>
+    <script src="Scripts/angular.min.js"></script>
+    <script src="Scripts/angular-animate.min.js"></script>
+    <script src="Scripts/angular-aria.min.js"></script>
+    <script src="Scripts/angular-messages.js"></script>
+    <script src="Scripts/angular-material/angular-material.min.js"></script>
+    <script src="Scripts/angular-ui-router.min.js"></script>
+    <script src="Scripts/angular-signalr-hub.min.js"></script>
+    <script src="Scripts/ngStorage.min.js"></script>
+    <script src="signalr/hubs"></script>
+
+    <!-- app -->
+    <script src="app/app.js"></script>
+    <script src="app/factories/authFactory.js"></script>
+    <script src="app/factories/alertaFactory.js"></script>
+    <script src="app/factories/soundFactory.js"></script>
+    <script src="app/factories/mensajesFactory.js"></script>
+    <script src="app/controllers/navbarController.js"></script>
+    <script src="app/controllers/loginController.js"></script>
+    <script src="app/controllers/inicioController.js"></script>
+</body>
+</html>
