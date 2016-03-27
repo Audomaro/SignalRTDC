@@ -138,28 +138,21 @@
     <Content Include="app\factories\soundFactory.js" />
     <Content Include="app\partials\inicio.html" />
     <Content Include="app\partials\login.html" />
-    <Content Include="Content\angular-material.css" />
-    <Content Include="Content\angular-material.layouts.css" />
-    <Content Include="Content\angular-material.layouts.min.css" />
-    <Content Include="Content\angular-material.min.css" />
+    <Content Include="Content\mdl-v1.1.2\material.css" />
+    <Content Include="Content\mdl-v1.1.2\material.js" />
+    <Content Include="Content\mdl-v1.1.2\material.min.css" />
+    <Content Include="Content\mdl-v1.1.2\material.min.js" />
     <Content Include="Global.asax" />
     <Content Include="index.html" />
     <Content Include="Scripts\angular-animate.js" />
     <Content Include="Scripts\angular-animate.min.js" />
-    <Content Include="Scripts\angular-animate\angular-animate.js" />
-    <Content Include="Scripts\angular-animate\angular-animate.min.js" />
     <Content Include="Scripts\angular-aria.js" />
     <Content Include="Scripts\angular-aria.min.js" />
-    <Content Include="Scripts\angular-aria\angular-aria.js" />
-    <Content Include="Scripts\angular-aria\angular-aria.min.js" />
     <Content Include="Scripts\angular-cookies.js" />
     <Content Include="Scripts\angular-cookies.min.js" />
     <Content Include="Scripts\angular-csp.css" />
     <Content Include="Scripts\angular-loader.js" />
     <Content Include="Scripts\angular-loader.min.js" />
-    <Content Include="Scripts\angular-material\angular-material-mocks.js" />
-    <Content Include="Scripts\angular-material\angular-material.js" />
-    <Content Include="Scripts\angular-material\angular-material.min.js" />
     <Content Include="Scripts\angular-message-format.js" />
     <Content Include="Scripts\angular-message-format.min.js" />
     <Content Include="Scripts\angular-messages.js" />
@@ -946,6 +939,12 @@
     <Content Include="Views\web.config" />
     <Content Include="packages.config" />
     <Content Include="Scripts\jquery-2.2.1.min.map" />
+    <Content Include="Content\mdl-v1.1.2\package.json" />
+    <Content Include="Content\mdl-v1.1.2\material.min.js.map" />
+    <Content Include="Content\mdl-v1.1.2\material.min.css.map" />
+    <Content Include="Content\mdl-v1.1.2\LICENSE" />
+    <Content Include="Content\mdl-v1.1.2\bower.json" />
+    <None Include="Properties\PublishProfiles\SignalRTDC.pubxml" />
     <Content Include="Scripts\version.json" />
     <Content Include="Scripts\errors.json" />
     <Content Include="Scripts\angular.min.js.map" />
@@ -959,7 +958,6 @@
     <Content Include="Scripts\angular-cookies.min.js.map" />
     <Content Include="Scripts\angular-aria.min.js.map" />
     <Content Include="Scripts\angular-animate.min.js.map" />
-    <None Include="Properties\PublishProfiles\SignalRTDC.pubxml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

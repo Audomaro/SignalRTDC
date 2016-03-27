@@ -3,7 +3,7 @@
     'use strict';
     angular
         .module('app')
-        .controller('navbarController', ['$scope', '$mdDialog', '$mdSidenav', 'authFactory', function ($scope, $mdDialog, $mdSidenav, authFactory) {
+        .controller('navbarController', ['$scope', 'authFactory', function ($scope, authFactory) {
             $scope.openMenu = function ($mdOpenMenu, ev) {
                 //var originatorEv = ev;
                 $mdOpenMenu(ev);
@@ -18,12 +18,10 @@
             };
 
             $scope.Menu = function () {
-                console.log('menu');
-                $mdSidenav('left').toggle();
+            
             };
 
             $scope.Close = function () {
-                $mdSidenav('left').close()
             };
         }]);
 }());

@@ -1,21 +1,26 @@
-<!--<h4>{{ Titulo }}</h4>
-<form>
-    <label>Usuario</label>
-    <input type="text" ng-model="Usuario" />
-    <button value="iniciar" ng-click="btnIniciar_Click()">Iniciar</button>
-</form>-->
-
-<form name="userForm">
-    <div layout-gt-sm="row">
-        <md-input-container class="md-block" flex-gt-sm>
-            <label>Nombre de usuario.</label>
-            <input required name="Usuario" ng-model="Usuario" autocomplete="off">
-            <div ng-messages="userForm.Usuario.$error">
-                <div ng-message="required">Nombre de usuario incorrecto.</div>
-            </div>
-        </md-input-container>
-    </div>
-    <section layout="row" layout-align="end center" layout-wrap>
-        <md-button class="md-raised" ng-click="btnIniciar_Click()">Iniciar sesiÃ³n</md-button>
-    </section>
-</form>
+<center id="login">
+	<div class="mdl-layout mdl-js-layout">
+		<div class="mdl-layout__content">
+			<div class="mdl-card mdl-shadow--6dp">
+				<div class="mdl-card__title mdl-color--primary mdl-color-text--white">
+					<h2 class="mdl-card__title-text">Acme Co.</h2>
+				</div>
+				<div class="mdl-card__supporting-text">
+					<form action="#">
+						<div class="mdl-textfield mdl-js-textfield">
+							<input class="mdl-textfield__input" type="text" id="Usuario" ng-model="Usuario" />
+							<label class="mdl-textfield__label" for="Usuario">Usuario</label>
+						</div>
+						<div class="mdl-textfield mdl-js-textfield">
+							<input class="mdl-textfield__input" type="password" id="contrasenia" />
+							<label class="mdl-textfield__label" for="contrasenia">Contraseña</label>
+						</div>
+					</form>
+				</div>
+				<div class="mdl-card__actions mdl-card--border">
+					<button class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" ng-click="btnIniciar_Click()">Iniciar sesión</button>
+				</div>
+			</div>
+		</div>
+	</div>
+</center>

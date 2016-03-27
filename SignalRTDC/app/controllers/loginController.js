@@ -7,11 +7,11 @@
             
             $scope.Usuario = '';
             
-            $scope.btnIniciar_Click = function () {
+            $scope. btnIniciar_Click = function () {
                 if ($scope.Usuario) {
                     authFactory.Login($scope.Usuario);
                 } else {
-                    $('[name = "Usuario"]').focus();
+                    $('#Usuario').focus();
                 }
             };
         }]);

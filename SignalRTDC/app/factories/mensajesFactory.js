@@ -44,7 +44,7 @@
                 },
 
                 //specify a non default root
-                // rootPath: '/SignalRTDC/signalr'//, // Produccion, QA
+                rootPath: '/SignalRTDC/signalr'//, // Produccion, QA
 
                 //stateChanged: function (state) {
                 //    switch (state.newState) {

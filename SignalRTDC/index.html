@@ -2,9 +2,9 @@
 <html ng-app="app">
 <head>
     <title></title>
-    <meta charset="utf-8" />
-    <link href="Content/angular-material.min.css" rel="stylesheet" />
-    <link href="Content/angular-material.layouts.min.css" rel="stylesheet" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link href="Content/mdl-v1.1.2/material.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://code.getmdl.io/1.1.3/material.blue_grey-pink.min.css" />
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <!--<base href="/">-->
     <style>
@@ -12,7 +12,7 @@
             font-family: 'Material Icons';
             font-weight: normal;
             font-style: normal;
-            font-size: 24px;  /* Preferred icon size */
+            font-size: 24px; /* Preferred icon size */
             display: inline-block;
             line-height: 1;
             text-transform: none;
@@ -20,125 +20,142 @@
             word-wrap: normal;
             white-space: nowrap;
             direction: ltr;
-
             /* Support for all WebKit browsers. */
             -webkit-font-smoothing: antialiased;
             /* Support for Safari and Chrome. */
             text-rendering: optimizeLegibility;
             /* Support for Firefox. */
             -moz-osx-font-smoothing: grayscale;
-
             /* Support for IE. */
             font-feature-settings: 'liga';
         }
 
         /* Rules for sizing the icon. */
-        .material-icons.md-18 { font-size: 18px; }
-        .material-icons.md-24 { font-size: 24px; }
-        .material-icons.md-36 { font-size: 36px; }
-        .material-icons.md-48 { font-size: 48px; }
-
-        /* Rules for using icons as black on a light background. */
-        .material-icons.md-dark { color: rgba(0, 0, 0, 0.54); }
-        .material-icons.md-dark.md-inactive { color: rgba(0, 0, 0, 0.26); }
-
-        /* Rules for using icons as white on a dark background. */
-        .material-icons.md-light { color: rgba(255, 255, 255, 1); }
-        .material-icons.md-light.md-inactive { color: rgba(255, 255, 255, 0.3); }
-
-        /*.fa-md {
-            height: auto;
-            display: block;
+        .material-icons.md-18 {
+            font-size: 18px;
         }
 
-        .s24 {
+        .material-icons.md-24 {
             font-size: 24px;
         }
 
-        .s32 {
-            font-size: 32px;
-        }*/
-
-        .inputdemoErrors .inputErrorsApp {
-            min-height: 48px;
+        .material-icons.md-36 {
+            font-size: 36px;
         }
 
-        .inputdemoErrors md-input-container > p {
-            font-size: 0.8em;
-            text-align: left;
-            width: 100%;
+        .material-icons.md-48 {
+            font-size: 48px;
+        }
+
+        /* Rules for using icons as black on a light background. */
+        .material-icons.md-dark {
+            color: rgba(0, 0, 0, 0.54);
+        }
+
+            .material-icons.md-dark.md-inactive {
+                color: rgba(0, 0, 0, 0.26);
+            }
+
+        /* Rules for using icons as white on a dark background. */
+        .material-icons.md-light {
+            color: rgba(255, 255, 255, 1);
+        }
+
+        .material-icons.md-light.md-inactive {
+            color: rgba(255, 255, 255, 0.3);
+        }
+
+        .android-header {
+            overflow: visible;
+        }
+
+        .android-drawer span.mdl-navigation__link.mdl-navigation__link {
+            color: #8bc34a;
+        }
+
+        .android-drawer-separator {
+            height: 1px;
+            background-color: #dcdcdc;
+            margin: 8px 0;
+        }
+    </style>
+
+    <style>
+        #login .mdl-layout {
+            align-items: center;
+            justify-content: center;
+        }
+
+        #login .mdl-layout__content {
+            padding: 24px;
+            flex: none;
         }
     </style>
 </head>
-<body>
+<body ng-controller="navbarController" ng-cloak>
     <audio id="alerta" src="sounds/alarm_frenzy.mp3" type="audio/mpeg" preload="auto"></audio>
 
-    <div ng-controller="navbarController">
-        <md-toolbar>
-            <div class="md-toolbar-tools">
-                <md-button class="md-icon-button" aria-label="Settings" ng-click="Menu()">
-                    <!--<md-icon md-font-icon="fa-bars" class="fa fa-md s24"></md-icon>-->
-                    <md-icon class="md-light">menu</md-icon>
-                </md-button>
-                <h2>
-                    <span>Angular</span>
-                </h2>
-                <span flex></span>
-                <div ng-show="IsAuth()">
-                    <md-menu md-position-mode="target-right target">
-                        <md-button class="md-fab md-mini md-" aria-label="More" ng-click="openMenu($mdOpenMenu, $event)">
-                            <md-icon>more_vert</md-icon>
-                        </md-button>
-                        <md-menu-content width="4">
-                            <md-menu-item>
-                                <md-button>
-                                    <div layout="row" flex>
-                                        <md-icon md-font-icon="fa-ellipsis-v" class="fa fa-md s24"></md-icon>
-                                        <p flex>Redial</p>
-                                    </div>
-                                </md-button>
-                            </md-menu-item>
-                            <md-menu-divider></md-menu-divider>
-                            <md-menu-item>
-                                <md-button ng-click="Cerrar()">
-                                    <div layout="row" flex>
-                                        <md-icon md-font-icon="fa-sign-out" class="fa fa-md s24"></md-icon>
-                                        <p flex>Cerrar sesión</p>
-                                    </div>
-                                </md-button>
-                            </md-menu-item>
-                        </md-menu-content>
-                    </md-menu>
-                </div>
+    <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+
+        <!-- Header -->
+        <div class="android-header mdl-layout__header mdl-layout__header--waterfall" ng-show="IsAuth()">
+            <div class="mdl-layout__header-row">
+                <span class="android-title mdl-layout-title">
+                    <img class="android-logo-image" src="#">
+                </span>
+
+                <!-- Espacio para alinear a la derecha los controles -->
+                <div class="android-header-spacer mdl-layout-spacer"></div>
+
+                
+                <!-- Menu derecho -->                
+                <button class="android-more-button mdl-button mdl-js-button mdl-button--icon mdl-js-ripple-effect" id="more-button">
+                    <i class="material-icons">more_vert</i>
+                </button>
+
+                <!-- Elementos del menu derecho -->
+                <ul class="mdl-menu mdl-js-menu mdl-menu--bottom-right mdl-js-ripple-effect" for="more-button">
+                    <li class="mdl-menu__item">Menu</li>
+                    <li class="mdl-menu__item">Menu</li>
+                    <li class="mdl-menu__item--full-bleed-divider"></li>
+                    <li class="mdl-menu__item" ng-click="Cerrar()">Cerrar sesión</li>
+                </ul>
             </div>
-        </md-toolbar>
+        </div>
 
-        <md-sidenav class="md-sidenav-left md-whiteframe-4dp" md-component-id="left" md-whiteframe="4">
-            <md-toolbar class="md-theme-indigo">
-                <h1 class="md-toolbar-tools">Menu</h1>
-            </md-toolbar>
-            <md-content layout-padding="">
-                <md-button ng-click="Close()" class="md-primary" hide-gt-md="">
-                    Close Sidenav Left
-                </md-button>
-                <p hide-md="" show-gt-md="">
-                    This sidenav is locked open on your device. To go back to the default behavior,
-                    narrow your display.
-                </p>
-            </md-content>
-        </md-sidenav>
+        <!-- Menu izquierdo --> 
+        <div class="android-drawer mdl-layout__drawer" ng-show="IsAuth()">
+            <span class="mdl-layout-title">
+                <img class="android-logo-image" src="#">
+            </span>
+            <!-- Elementos -->
+            <nav class="mdl-navigation">
+                <a class="mdl-navigation__link" href="">Menu</a>
+                <a class="mdl-navigation__link" href="">Menu</a>
+                <a class="mdl-navigation__link" href="">Menu</a>
+                <a class="mdl-navigation__link" href="">Menu</a>
+                <a class="mdl-navigation__link" href="">Menu</a>
+                <div class="android-drawer-separator"></div>
+                <span class="mdl-navigation__link" href="">Varios</span>
+                <a class="mdl-navigation__link" href="">Menu</a>
+                <a class="mdl-navigation__link" href="">Menu</a>
+                <a class="mdl-navigation__link" href="">Menu</a>
+            </nav>
+        </div>
+        
+        <!-- Contenido -->
+        <div class="android-content mdl-layout__content mdl-color--grey-100">
+            <div ui-view></div>
+        </div>
     </div>
-
-    <md-content flex="" layout-padding ui-view></md-content>
 
     <!-- Libs -->
     <script src="Scripts/jquery-2.2.1.min.js"></script>
     <script src="Scripts/jquery.signalR-2.2.0.min.js"></script>
+    <script src="Content/mdl-v1.1.2/material.min.js"></script>
     <script src="Scripts/angular.min.js"></script>
     <script src="Scripts/angular-animate.min.js"></script>
     <script src="Scripts/angular-aria.min.js"></script>
-    <script src="Scripts/angular-messages.js"></script>
-    <script src="Scripts/angular-material/angular-material.min.js"></script>
     <script src="Scripts/angular-ui-router.min.js"></script>
     <script src="Scripts/angular-signalr-hub.min.js"></script>
     <script src="Scripts/ngStorage.min.js"></script>
